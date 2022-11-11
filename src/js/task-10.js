@@ -1,5 +1,4 @@
-
-// Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция. 
+// Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит количество элементов в input и нажимает кнопку Создать, после чего рендерится коллекция.
 // При нажатии на кнопку Очистить, коллекция элементов очищается.
 // <div id="controls">
 //   <input type="number" min="1" max="100" step="1" />
@@ -18,37 +17,36 @@
 // }
 // Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 
-
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const inputNumber = document.querySelector("#controls > input");
-const buttonCreate = document.querySelector("button[data-create]");
-const buttonDestroy = document.querySelector("button[data-destroy]");
-const boxesColor = document.querySelector("#boxes");
+const inputNumber = document.querySelector('#controls > input');
+const buttonCreate = document.querySelector('button[data-create]');
+const buttonDestroy = document.querySelector('button[data-destroy]');
+const boxesColor = document.querySelector('#boxes');
 
 const createBoxes = (amount) => {
-	const elementAdd = [];
-	for (let i = 0; i < amount; i++) {
-		const viewDiv = document.createElement('div');
-		viewDiv.style.height = `${30 + 10 * i}px`;
-		viewDiv.style.width = `${30 + 10 * i}px`;
-		viewDiv.style.background = getRandomHexColor();
-		elementAdd.push(viewDiv);
-	}
-	return elementAdd
+  const elementAdd = [];
+  for (let i = 0; i < amount; i++) {
+    const viewDiv = document.createElement('div');
+    viewDiv.style.height = `${30 + 10 * i}px`;
+    viewDiv.style.width = `${30 + 10 * i}px`;
+    viewDiv.style.background = getRandomHexColor();
+    elementAdd.push(viewDiv);
+  }
+  return elementAdd;
 };
 
-buttonCreate.addEventListener("click", () => {
-	const boxAdd = createBoxes (inputNumber.value);
-	boxesColor.append(...boxAdd);
+buttonCreate.addEventListener('click', () => {
+  const boxAdd = createBoxes(inputNumber.value);
+  boxesColor.append(...boxAdd);
 });
 
 const destroyBoxes = () => {
-	boxesColor.innerHTML = "";
+  boxesColor.innerHTML = '';
 };
 
-buttonDestroy.addEventListener("click", () => {
-	destroyBoxes.call();
+buttonDestroy.addEventListener('click', () => {
+  destroyBoxes.call();
 });
