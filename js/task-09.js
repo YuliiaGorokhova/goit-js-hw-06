@@ -1,4 +1,4 @@
-// Напиши скрипт, который изменяет цвета фона элемента <body> через инлайн стиль при клике на button.change-color 
+// Напиши скрипт, который изменяет цвета фона элемента <body> через инлайн стиль при клике на button.change-color
 // и выводит значение цвета в span.color.
 // <div class="widget">
 //   <p>Background color: <span class="color">-</span></p>
@@ -17,10 +17,10 @@ function getRandomHexColor() {
 
 const body = document.querySelector('body');
 const changeButton = document.querySelector('.change-color');
-const colorBackground = document.querySelector('.color');            //<p>Background color: <span class="color">-</span></p>
+const colorBackground = document.querySelector('.color'); //<p>Background color: <span class="color">-</span></p>
 
-changeButton.addEventListener ('click', (event) => {
-const colorBack = getRandomHexColor();
-body.style.backgroundColor = colorBack;
-colorBackground.textContent = colorBack;
+changeButton.addEventListener('click', () => {
+  let colorBack = getRandomHexColor();
+  body.style.backgroundColor = colorBack;
+  colorBackground.textContent = colorBack;
 });
